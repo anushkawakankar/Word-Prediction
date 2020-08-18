@@ -1,0 +1,58 @@
+---
+title: "Word Prediction"
+author: "Anushka Wakankar"
+date: "18th August, 2020"
+output:
+  slidy_presentation: default
+  html_document:
+    number_sections: yes
+    toc: yes
+  ioslides_presentation: default
+mode: selfcontained
+job: Reproducible Pitch Presentation
+highlighter: highlight.js
+widgets: bootstrap
+---
+
+## Data Science Capstone: Final Project (Word Predictor)
+
+### See the codes here 
+
+- URL: *https://github.com/anushkawakankar/Word-Prediction*
+
+### Find the app here
+
+- URL: *https://anushkawakankar123.shinyapps.io/WordPrediction/*
+
+---
+
+## Introduction
+This presentation is created as part of the requirement for the Coursera Data Science Capstone Course.
+
+The goal of the project is to build a predictive text model combined with a shiny app UI that will predict the next word as the user types a sentence similar to the way most smart phone keyboards are implemented today using the technology of Swiftkey.
+
+---
+
+## Getting & Cleaning the Data
+
+Before building the word prediction algorithm, data are first processed and cleaned as steps below:
+
+- A subset of the original data was sampled from the three sources (blogs,twitter and news) which is then merged into one.
+- Next, data cleaning is done by conversion to lowercase, strip white space, and removing punctuation and numbers.
+- The corresponding n-grams are then created (Quadgram,Trigram and Bigram).
+- Next, the term-count tables are extracted from the N-Grams and sorted according to the frequency in descending order.
+- Lastly, the n-gram objects are saved as R-Compressed files (.RData files).
+
+---
+
+## Word Prediction Model
+
+Explanation of the next word prediction flow is as below:
+
+- Compressed data sets containing descending frequency sorted n-grams are first loaded.
+- User input words are cleaned in the similar way as before prior to prediction of the next word.
+- For prediction of the next word, Quadgram is first used (first three words of Quadgram are the last three words of the user provided sentence).
+- If no Quadgram is found, back off to Trigram (first two words of Trigram are the last two words of the sentence).
+- If no Trigram is found, back off to Bigram (first word of Bigram is the last word of the sentence)
+- If no Bigram is found, back off to the most common word with highest frequency 'the' is returned.
+
