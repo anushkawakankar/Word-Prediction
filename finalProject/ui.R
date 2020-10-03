@@ -29,7 +29,7 @@ shinyUI(navbarPage("Coursera Data Science Capstone: Course Project",
                    ),
                    tabPanel("About",
                             mainPanel(
-                                img(src = "./headers.png"),
+                                img(src = "./header.jpg"),
                                 includeMarkdown("about.md")
                             )
                    )
