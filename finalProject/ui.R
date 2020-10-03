@@ -2,7 +2,7 @@ suppressWarnings(library(shiny))
 suppressWarnings(library(markdown))
 shinyUI(navbarPage("Coursera Data Science Capstone: Course Project",
                    tabPanel("Predict the Next Word",
-                            img(src = "./headers.png"),
+                            img(src = "./header.jpg"),
                             # Sidebar
                             sidebarLayout(
                                 sidebarPanel(
